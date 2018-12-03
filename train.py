@@ -11,19 +11,18 @@ from BagData import test_dataloader, train_dataloader
 from FCN import FCN8s, FCN16s, FCN32s, FCNs, VGGNet
 
 
-def train():
+def train(epo_num=50, show_vgg_params=False):
 
     vis = visdom.Visdom()
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    vgg_model = VGGNet(requires_grad=True, show_params=True)
+    vgg_model = VGGNet(requires_grad=True, show_params=show_vgg_params)
     fcn_model = FCNs(pretrained_net=vgg_model, n_class=2)
     fcn_model = fcn_model.to(device)
     criterion = nn.BCELoss().to(device)
     optimizer = optim.SGD(fcn_model.parameters(), lr=1e-2, momentum=0.7)
 
-    epo_num = 50
     all_train_iter_loss = []
     all_test_iter_loss = []
 
@@ -121,4 +120,4 @@ def train():
 
 if __name__ == "__main__":
 
-    train()
+    train(epo_num=100, show_vgg_params=False)
