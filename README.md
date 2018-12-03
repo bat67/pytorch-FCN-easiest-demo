@@ -41,9 +41,20 @@ python train.py
 ```
 * 若没有问题可以打开浏览器输入`http://localhost:8097/`来使用`visdom`可视化
 
+### 训练细节
+
+![训练细节](assets/train.jpg)
+
 ## 数据集
 
 * training data来自[这里](https://github.com/yunlongdong/FCN-pytorch-easiest/tree/master/last)，ground-truth来自[这里](https://github.com/yunlongdong/FCN-pytorch-easiest/tree/master/last_msk)。
 * 链接中提供的图片中，部分ground-truth的有误，而且部分有ground-truth的图片没有对应training data的图片，将这些有错误的图片分别剔除，重新编号排序之后剩余533张图片。
-* 之后我随机选取了67张图片**旋转180度**，一共在training data和ground-truth分别凑够600张图片。
+* 之后我随机选取了67张图片**旋转180度**，一共在training data和ground-truth分别凑够600张图片（0.jpg ~ 599.jpg）。
 
+## 可视化
+
+* train prediction：训练时模型的输出
+* label：ground-truth
+* test prediction：预测时模型的输出（每次训练都会预测，但预测数据不参与训练与backprop）
+* train iter loss：训练时每一批（batch）的loss情况
+* test iter loss：测试时每一批（batch）的loss情况
