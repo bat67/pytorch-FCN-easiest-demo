@@ -1,4 +1,6 @@
-.vscode
-.spyproject
 __pycache__
-_tmp
+.vscode
+.ipynb_checkpoints
+.spyproject
+.idea
+.tmp
