@@ -23,12 +23,12 @@
 ### 1.1 我的运行环境
 
 * Windows 10
-* CUDA 9.2 （可选）
-* Anaconda 3
-* pytorch = 0.4.1
-* torchvision = 0.2.1
-* visdom = 0.1.8.5
-* OpenCV-Python = 3.4.1
+* CUDA 9.x （可选）
+* Anaconda 3 （numpy、os、datetime、matplotlib）
+* pytorch == 0.4.1 or 1.0
+* torchvision == 0.2.1
+* visdom == 0.1.8.5
+* OpenCV-Python == 3.4.1
 
 ### 1.2 具体操作
 
@@ -64,12 +64,19 @@ python train.py
 
 ### 4.1 [train.py](train.py)
 
-
+* 训练网络与可视化
+* 主函数
 
 ### 4.2 [FCN.py](FCN.py)
 
+* FCN32s、FCN16s、FCN8s、FCNs网络定义
+* VGGNet网络定义、VGG不同种类网络参数、构建VGG网络的函数
 
 ### 4.3 [BagData.py](BagData.py)
 
+* 定义方便PyTorch读取数据的Dataset和DataLoader
+* 定义数据的变换transform
 
 ### 4.4 [onehot.py](onehot.py)
+
+* 图片的onehot编码
